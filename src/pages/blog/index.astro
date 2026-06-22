@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const posts = (
+	await getCollection("blog", ({ data }) => {
+		return data.lang === "en" && data.draft !== true;
+	})
+).sort(
+	(a: { data: { pubDate: number } }, b: { data: { pubDate: number } }) =>
+		b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const formatter = new Intl.DateTimeFormat("en-US");
+// .filter((post: { data: { lang: string; draft: boolean } }) => {
+// 		return post.data.lang === "en" && post.data.draft !== true;
+// 	})
+---
+
+<Layout>
+	<Header />
+	<main>
+		<section>
+			<div class="wrapper">
+				<h1>My posts</h1>
+				<ul class="post__container">
+					{posts.map((post: { id: number; data: { title: string; description: string; pubDate: number; }; }) => (
+    <li class="post__card clay"><h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+    <p>{post.data.description}</p>
+    <p>Published on: {formatter.format(post.data.pubDate)}</p>
+    </li>
+  ))}
+				</ul>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+.post__container {
+	padding: 0;
+	list-style: none;
+}
+
+.post__card {
+	--clay-background: var(--surface-container);
+	padding: 12px 16px;
+	margin-bottom: 1rem;
+}
+
+.post__card h2 {
+	margin-top: 0;
+}
+
+.post__card a {
+	color: var(--on-surface);
+}
+</style>

@@ -1,0 +1,38 @@
+html {
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family:
+    system-ui, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+
+  &:lang(ko) {
+    word-break: keep-all;
+  }
+}
+
+p,
+li,
+figcaption {
+  max-width: 65ch;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  font-style: italic;
+}
+
+pre {
+  font-family: 'Consolas', 'SF Mono Regular 11', system-ui;
+}

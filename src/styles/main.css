@@ -1,0 +1,64 @@
+body {
+  color: var(--on-background);
+  background-color: var(--background);
+}
+
+main > section {
+  padding-block: 16px;
+}
+
+@media (min-width: 48rem) {
+  .hero .wrapper {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .hero__text {
+    margin-bottom: 0;
+  }
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / 6;
+  align-items: start;
+  align-self: start;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.hero__text p {
+  /* width: fit-content; */
+}
+
+.hero img {
+  grid-column: 7 / 12;
+  align-self: start;
+}
+
+.connect__list {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.connect li {
+  list-style: none;
+}
+
+.connect a {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.connect__github {
+  color: var(--on-background);
+}
+
+.connect__linkedin {
+  color: var(--on-background);
+}

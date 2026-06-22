@@ -1,0 +1,85 @@
+---
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Header from "../../../components/ko/Header.astro";
+import Layout from "../../../layouts/Layout.astro";
+
+const posts = (
+	await getCollection(
+		"blog",
+		({ data }: { data: { lang: string; draft: boolean } }) => {
+			return data.lang === "ko" && data.draft !== true;
+		},
+	)
+).sort(
+	(a: { data: { pubDate: number } }, b: { data: { pubDate: number } }) =>
+		b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const formatter = new Intl.DateTimeFormat("ko-KR");
+---
+
+<Layout>
+	<Header />
+	<main>
+		<section>
+			<div class="wrapper">
+				<h1>포스트</h1>
+				<a class="blog__rss" href="/ko/blog/rss.xml"
+					><svg
+						aria-hidden="true"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-rss-icon lucide-rss">
+						<path d="M4 11a9 9 0 0 1 9 9" />
+						<path d="M4 4a16 16 0 0 1 16 16" />
+						<circle cx="5" cy="19" r="1" />
+					</svg><span>RSS</span></a
+				>
+				<ul class="post__container">
+					{posts.map((post: { id: number; data: { title: string; description: string; pubDate: number; }; }) => (
+    <li class="post__card clay"><h2><a href={`${getRelativeLocaleUrl('ko',`/blog/${post.id}`)}`}>{post.data.title}</a></h2>
+    <p>{post.data.description}</p>
+    <p>Published on: {formatter.format(post.data.pubDate)}</p>
+    </li>
+  ))}
+				</ul>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+.blog__rss {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	color: inherit;
+}
+
+.post__container {
+	padding: 0;
+	list-style: none;
+}
+
+.post__card {
+	--clay-background: var(--surface-container);
+	padding: 12px 16px;
+	margin-bottom: 1rem;
+}
+
+.post__card h2 {
+	margin-top: 0;
+}
+
+.post__card a {
+	color: var(--on-surface);
+}
+</style>

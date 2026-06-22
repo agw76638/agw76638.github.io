@@ -1,0 +1,47 @@
+---
+import type { MarkdownInstance } from "astro";
+
+interface Frontmatter {
+	title: string;
+	role: string;
+	github: string;
+	live: string;
+}
+
+const allProjects = Object.values(
+	import.meta.glob<MarkdownInstance<Frontmatter>>(
+		"../../content/projects/ko/*.md",
+		{
+			eager: true,
+		},
+	),
+);
+---
+
+{allProjects.map((project)=>(
+<article class="project-card clay">
+    <h3>{project.frontmatter.title}</h3>
+    <p>역할: {project.frontmatter.role}</p>
+    <p set:html={project.compiledContent()}></p>
+	<a href={project.frontmatter.github}>깃허브</a>
+	<a href={project.frontmatter.live}>라이브 데모</a>
+</article>
+        ))}
+
+<style>
+.project-card {
+	--clay-border-radius: 0.75rem;
+	--clay-background: var(--surface-container);
+	padding: 16px;
+}
+
+.project-card h3 {
+	margin-top: 0;
+}
+
+.project-card a {
+	display: block;
+	width: fit-content;
+	color: var(--on-surface);
+}
+</style>
