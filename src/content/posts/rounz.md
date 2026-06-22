@@ -119,7 +119,7 @@ rounz 사이트에서 발견된 접근성 문제들을 살펴보자.
 
 | 지표                 | rounz 현황    | 우리 프레임워크 | 개선율     |
 | -------------------- | ------------- | --------------- | ---------- |
-| 성능 점수            | **40** 🔴     | **99** ✅       | +147%      |
+| 성능 점수            | **40** 🔴     | **100** ✅      | +147%      |
 | 접근성               | **62** 🟡     | **100** ✅      | +61%       |
 | 권장사항             | 69 🟡         | **100** ✅      | +45%       |
 | SEO                  | 85 🟡         | **100** ✅      | +18%       |
@@ -327,4 +327,4 @@ rounz.co.kr은 나쁜 서비스가 아니다. 오히려 잘 운영되고 있는 
 
 ---
 
-_이 분석은 부트캠프 팀 프로젝트의 일환으로 작성되었으며, Google PageSpeed Insights의 실측 데이터를 기반으로 합니다. rounz 측정: Moto G Power 에뮬레이션, Lighthouse 13.3.0, 2026년 6월 19일. 프레임워크 측정: 동일 환경, 느린 4G 제한, 2026년 6월 11일 12:21:17 AM ([링크 확인하기](https://pagespeed.web.dev/analysis/https-agw76638-github-io-est_fe13_2nd_project/6mw36hvq0k?form_factor=mobile))._
+_이 분석은 부트캠프 팀 프로젝트의 일환으로 작성되었으며, Google PageSpeed Insights의 실측 데이터를 기반으로 합니다. rounz 측정: Moto G Power 에뮬레이션, Lighthouse 13.3.0, 2026년 6월 19일. 프레임워크 측정: 동일 환경, 느린 4G 제한, 2026년 6월 19일 12:21:17 AM ([링크 확인하기](https://pagespeed.web.dev/analysis/https-agw76638-github-io-est_fe13_2nd_project/6mw36hvq0k?form_factor=mobile))._
