@@ -26,7 +26,7 @@ const formatter = new Intl.DateTimeFormat("en-US");
 				<h1>My posts</h1>
 				<ul class="post__container">
 					{posts.map((post: { id: number; data: { title: string; description: string; pubDate: number; }; }) => (
-    <li class="post__card clay"><h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+    <li class="post__card card card-elevated"><h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
     <p>{post.data.description}</p>
     <p>Published on: {formatter.format(post.data.pubDate)}</p>
     </li>
@@ -41,12 +41,6 @@ const formatter = new Intl.DateTimeFormat("en-US");
 .post__container {
 	padding: 0;
 	list-style: none;
-}
-
-.post__card {
-	--clay-background: var(--surface-container);
-	padding: 12px 16px;
-	margin-bottom: 1rem;
 }
 
 .post__card h2 {

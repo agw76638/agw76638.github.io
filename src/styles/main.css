@@ -28,8 +28,8 @@ main > section {
   margin-bottom: 1rem;
 }
 
-.hero__text p {
-  /* width: fit-content; */
+.hero__text h1 {
+  margin-bottom: 0;
 }
 
 .hero img {
@@ -53,12 +53,10 @@ main > section {
   display: flex;
   gap: 0.5rem;
   align-items: center;
-}
-
-.connect__github {
   color: var(--on-background);
 }
 
-.connect__linkedin {
-  color: var(--on-background);
+.connect a svg {
+  width: 1em;
+  height: 1em;
 }

@@ -16,7 +16,7 @@ const allProjects = Object.values(
 ---
 
 {allProjects.map((project)=>(
-<article class="project-card clay">
+<article class="project-card card card-filled">
     <h3>{project.frontmatter.title}</h3>
     <p>Role: {project.frontmatter.role}</p>
     <p set:html={project.compiledContent()}></p>
@@ -26,16 +26,6 @@ const allProjects = Object.values(
         ))}
 
 <style>
-.project-card {
-	--clay-border-radius: 0.75rem;
-	--clay-background: var(--surface-container);
-	padding: 16px;
-}
-
-.project-card h3 {
-	margin-top: 0;
-}
-
 .project-card a {
 	display: block;
 	width: fit-content;

@@ -92,23 +92,64 @@
 }
 
 .btn {
-  --clay-border-radius: 0.25rem;
   display: flex;
-  gap: 0.5rem;
   align-items: center;
-
-  padding: 0.375rem 0.75rem;
   text-decoration: none;
-  transition:
-    color 0.15s ease-in-out,
-    background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out,
-    box-shadow 0.15s ease-in-out;
+  border-radius: 999px;
+}
+
+.btn svg {
+  width: 1em;
+  height: 1em;
+}
+
+.btn:hover {
+  opacity: 0.92;
 }
 
 .btn-primary {
-  --clay-background: var(--primary-container);
   color: var(--on-primary-container);
+  background-color: var(--primary-container);
+}
+
+.btn-small {
+  gap: 8px;
+  padding-inline: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  letter-spacing: 0.1px;
+}
+
+.btn-medium {
+  gap: 8px;
+  min-height: 3.5rem;
+  padding-inline: 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5rem;
+  letter-spacing: 0.15px;
+}
+
+.card {
+  padding: 16px;
+  text-align: start;
+  border-radius: 12px;
+}
+
+.card-filled {
+  color: var(--on-surface);
+  background-color: var(--surface-container-highest);
+}
+
+.card-filled:hover {
+  opacity: 0.92;
+}
+
+.card-elevated {
+  color: var(--on-surface);
+  background-color: var(--surface-container-low);
+  box-shadow: var(--shadow-elevation-low);
 }
 
 .auto-grid {
@@ -122,17 +163,4 @@
     minmax(min(var(--min-col-size), var(--overflow-prevent)), 1fr)
   );
   gap: var(--gap-size);
-}
-
-.clay {
-  background: var(--clay-background, rgba(0, 0, 0, 0.005));
-  border-radius: var(--clay-border-radius, 2rem);
-  box-shadow:
-    var(--clay-shadow-outset, 8px 8px 16px 0 rgba(0, 0, 0, 0.25)),
-    inset var(--clay-shadow-inset-primary, -8px -8px 12px 0 rgba(0, 0, 0, 0.25)),
-    inset
-      var(
-        --clay-shadow-inset-secondary,
-        8px 8px 12px 0 rgba(255, 255, 255, 0.4)
-      );
 }
