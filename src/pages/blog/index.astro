@@ -24,6 +24,24 @@ const formatter = new Intl.DateTimeFormat("en-US");
 		<section>
 			<div class="wrapper">
 				<h1>My posts</h1>
+				<a class="blog__rss" href="/blog/rss.xml"
+					><svg
+						aria-hidden="true"
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-rss-icon lucide-rss">
+						<path d="M4 11a9 9 0 0 1 9 9" />
+						<path d="M4 4a16 16 0 0 1 16 16" />
+						<circle cx="5" cy="19" r="1" />
+					</svg><span>RSS</span></a
+				>
 				<ul class="post__container">
 					{posts.map((post: { id: number; data: { title: string; description: string; pubDate: number; }; }) => (
     <li class="post__card card card-elevated"><h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
@@ -38,6 +56,13 @@ const formatter = new Intl.DateTimeFormat("en-US");
 </Layout>
 
 <style>
+.blog__rss {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	color: inherit;
+}
+
 .post__container {
 	padding: 0;
 	list-style: none;
