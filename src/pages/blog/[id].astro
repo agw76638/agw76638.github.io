@@ -1,0 +1,39 @@
+---
+import { getCollection, render } from "astro:content";
+import Header from "../../components/ko/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+
+const formatter = new Intl.DateTimeFormat("en-US");
+
+export async function getStaticPaths() {
+	const posts = await getCollection(
+		"blog",
+		({ data }: { data: { lang: string; draft: boolean } }) => {
+			return data.lang === "en" && data.draft !== true;
+		},
+	);
+	return posts.map((post: { id: any }) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
+}
+
+const { post }: { post: { data: { title: string; pubDate: Date } } } =
+	Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+	<Header />
+	<main>
+		<section>
+			<div class="wrapper">
+				<article>
+					<h1>{post.data.title}</h1>
+					<p>{formatter.format(post.data.pubDate)}</p>
+					<Content />
+				</article>
+			</div>
+		</section>
+	</main>
+</Layout>
