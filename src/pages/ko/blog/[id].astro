@@ -23,7 +23,7 @@ const { post }: { post: { data: { title: string; pubDate: Date } } } =
 const { Content } = await render(post);
 ---
 
-<Layout>
+<Layout title={post.data.title}>
 	<Header />
 	<main>
 		<section>
