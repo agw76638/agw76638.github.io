@@ -307,7 +307,7 @@ This is a direct implementation of the WAI-ARIA Authoring Practices Guide tab pa
 
 ```javascript
 // header.js — icons are visual decoration; meaning is conveyed via visually-hidden <span>
-`<button aria-label="Open menu">
+`<button>
   <svg aria-hidden="true"></svg>
   <span class="visually-hidden">Open menu</span>
 </button>`;
