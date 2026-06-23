@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Header from "../../../components/ko/Header.astro";
 import Layout from "../../../layouts/Layout.astro";
+import "../../../styles/pages/blog.css";
 
 const posts = (
 	await getCollection(
@@ -55,25 +56,3 @@ const formatter = new Intl.DateTimeFormat("ko-KR");
 		</section>
 	</main>
 </Layout>
-
-<style>
-.blog__rss {
-	display: flex;
-	gap: 8px;
-	align-items: center;
-	color: inherit;
-}
-
-.post__container {
-	padding: 0;
-	list-style: none;
-}
-
-.post__card h2 {
-	margin-top: 0;
-}
-
-.post__card a {
-	color: var(--on-surface);
-}
-</style>

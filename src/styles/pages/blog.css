@@ -1,0 +1,19 @@
+.blog__rss {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: inherit;
+}
+
+.post__container {
+  padding: 0;
+  list-style: none;
+}
+
+.post__card h2 {
+  margin-top: 0;
+}
+
+.post__card a {
+  color: var(--on-surface);
+}
